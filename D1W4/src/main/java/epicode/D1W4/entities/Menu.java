@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,6 +15,11 @@ public class Menu {
     private List<Bevanda> bevande;
     private List<Topping> toppings;
 
+    public Menu() {
+        this.pizze = new ArrayList<>();
+        this.bevande = new ArrayList<>();
+        this.toppings = new ArrayList<>();
+    }
     public void addPizza(Pizza pizza){
         this.pizze.add(pizza);
     }

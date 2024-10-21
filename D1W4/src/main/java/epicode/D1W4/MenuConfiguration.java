@@ -1,14 +1,16 @@
 package epicode.D1W4;
 
+import epicode.D1W4.entities.Bevanda;
 import epicode.D1W4.entities.Menu;
 import epicode.D1W4.entities.Pizza;
+import epicode.D1W4.entities.Topping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
 @Configuration
-public class PizzaConfiguration {
+public class MenuConfiguration {
 
     @Bean
     public Pizza margherita() {
@@ -24,6 +26,30 @@ public class PizzaConfiguration {
     public Pizza quattroFormaggi() {
         return new Pizza("4 Formaggi", 8.00, 1715, List.of("Mozzarella", "Gorgonzola", "Stracchino", "Fontina"));
     }
+    @Bean
+    public Bevanda cocacola() {
+        return new Bevanda("Coca Cola", 2.50, 215);
+    }
+    @Bean
+    public Bevanda acqua() {
+        return new Bevanda("Acqua (0.70L)", 1.50, 0);
+    }
+    @Bean
+    public Bevanda birra() {
+        return new Bevanda("Birra", 3.50, 415);
+    }
+    @Bean
+    public Topping salame() {
+        return new Topping("Salame", 1.50);
+    }
+    @Bean
+    public Topping gorgonzola() {
+        return new Topping("Gorgonzola", 1.00);
+    }
+    @Bean
+    public Topping wurstel() {
+        return new Topping("Coca Cola", 1.50);
+    }
 
     @Bean
     public Menu menu() {
@@ -31,6 +57,12 @@ public class PizzaConfiguration {
         menu.addPizza(margherita());
         menu.addPizza(prosciuttoFunghi());
         menu.addPizza(quattroFormaggi());
+        menu.addBevanda(cocacola());
+        menu.addBevanda(acqua());
+        menu.addBevanda(birra());
+        menu.addTopping(salame());
+        menu.addTopping(wurstel());
+        menu.addTopping(gorgonzola());
         return menu;
     }
 }
